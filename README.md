@@ -3,9 +3,7 @@
 A static website for **Autonomous Robotic System for Precise Underground Water Leak Detection**.
 
 LINK OF THE WEBSITE (not local host)
-✓ Created         mohamedsayedsalahibrahim-7585s-projects/leakbot-website
-  Inspect         https://vercel.com/mohamedsayedsalahibrahim-7585s-projects/leakbot-website/4dWHBjBZ1KV6PsyNHgYj2Jre1fTs
-  Production      https://leakbot-website-b8p9oy8rb.vercel.app
+
 ▲ Aliased         https://leakbot-website.vercel.app
 
 ## Project Owner
