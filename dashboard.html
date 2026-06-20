@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>لوحة التحكم | LeakBot</title>
+
+  <meta
+    name="description"
+    content="لوحة تحكم مشروع LeakBot لمتابعة بيانات المشروع، قراءات الحساسات، ورسائل التواصل."
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <nav class="dashboard-navbar">
+      <a href="index.html" class="dashboard-logo">
+        <span class="logo-shape">
+          <i class="ri-drop-line"></i>
+        </span>
+        <strong>LeakBot</strong>
+      </a>
+
+      <div class="dashboard-user">
+        <div class="user-info">
+          <span id="currentUserName">User</span>
+          <small id="currentUserEmail">user@email.com</small>
+        </div>
+
+        <button class="logout-btn" type="button" onclick="logoutUser()">
+          <i class="ri-logout-circle-line"></i>
+          تسجيل الخروج
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="dashboard-main">
+
+    <!-- Welcome -->
+    <section class="dashboard-welcome">
+      <div>
+        <span class="dashboard-badge">
+          <i class="ri-dashboard-3-line"></i>
+          Protected Dashboard
+        </span>
+
+        <h1>لوحة تحكم مشروع LeakBot</h1>
+
+        <p>
+          متابعة ملخص المشروع، قراءات الحساسات، تحليل التسريبات، ورسائل التواصل
+          الخاصة بمشروع اكتشاف تسريبات المياه تحت الأرض.
+        </p>
+      </div>
+
+      <div class="dashboard-status-card">
+        <i class="ri-shield-check-line"></i>
+        <h3>System Status</h3>
+        <p>Demo Mode Active</p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="dashboard-stats">
+      <article class="dash-stat-card">
+        <i class="ri-drop-line"></i>
+        <div>
+          <strong>30%</strong>
+          <span>Water Loss Percentage</span>
+        </div>
+      </article>
+
+      <article class="dash-stat-card">
+        <i class="ri-water-flash-line"></i>
+        <div>
+          <strong>6B m³</strong>
+          <span>Annual Water Loss</span>
+        </div>
+      </article>
+
+      <article class="dash-stat-card">
+        <i class="ri-money-dollar-circle-line"></i>
+        <div>
+          <strong>12B EGP</strong>
+          <span>Annual Financial Loss</span>
+        </div>
+      </article>
+
+      <article class="dash-stat-card">
+        <i class="ri-tools-line"></i>
+        <div>
+          <strong>&lt;$100</strong>
+          <span>Target Manufacturing Cost</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Dashboard Grid -->
+    <section class="dashboard-grid">
+
+      <!-- Sensor Readings -->
+      <div class="dashboard-panel large-panel">
+        <div class="panel-title">
+          <div>
+            <h2>Sensor Readings</h2>
+            <p>قراءات تجريبية للحساسات المستخدمة في النظام.</p>
+          </div>
+
+          <i class="ri-radar-line"></i>
+        </div>
+
+        <div class="sensor-grid">
+          <article class="sensor-card">
+            <span class="sensor-icon pressure">
+              <i class="ri-speed-up-line"></i>
+            </span>
+
+            <div>
+              <h3>Pressure Sensor</h3>
+              <strong id="pressureValue">101.3 kPa</strong>
+              <p>MPXV7002DP differential pressure</p>
+            </div>
+          </article>
+
+          <article class="sensor-card">
+            <span class="sensor-icon imu">
+              <i class="ri-compass-3-line"></i>
+            </span>
+
+            <div>
+              <h3>IMU Tracking</h3>
+              <strong id="imuValue">12.4 m</strong>
+              <p>Estimated traveled distance</p>
+            </div>
+          </article>
+
+          <article class="sensor-card">
+            <span class="sensor-icon gps">
+              <i class="ri-map-pin-line"></i>
+            </span>
+
+            <div>
+              <h3>GPS Start Point</h3>
+              <strong id="gpsValue">30.0444, 31.2357</strong>
+              <p>Entry point coordinates</p>
+            </div>
+          </article>
+
+          <article class="sensor-card">
+            <span class="sensor-icon sd">
+              <i class="ri-sd-card-line"></i>
+            </span>
+
+            <div>
+              <h3>SD Logging</h3>
+              <strong id="sdValue">Active</strong>
+              <p>Data stored for later analysis</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Leak Alert -->
+      <div class="dashboard-panel alert-panel">
+        <div class="panel-title">
+          <div>
+            <h2>Leak Detection</h2>
+            <p>حالة اكتشاف التسريب الحالية.</p>
+          </div>
+
+          <i class="ri-alarm-warning-line"></i>
+        </div>
+
+        <div class="leak-status" id="leakStatusBox">
+          <span class="pulse-dot"></span>
+          <h3 id="leakStatusText">No Leak Detected</h3>
+          <p id="leakStatusDescription">
+            Current pressure values are stable.
+          </p>
+        </div>
+
+        <button class="simulate-btn" type="button" id="simulateLeakBtn">
+          <i class="ri-test-tube-line"></i>
+          Simulate Leak
+        </button>
+      </div>
+
+      <!-- Leak Distribution -->
+      <div class="dashboard-panel">
+        <div class="panel-title">
+          <div>
+            <h2>Leak Distribution</h2>
+            <p>توزيع أماكن التسريب المتوقعة.</p>
+          </div>
+
+          <i class="ri-pie-chart-2-line"></i>
+        </div>
+
+        <div class="dash-bars">
+          <div class="dash-bar-row">
+            <span>Main transmission lines</span>
+            <strong>40%</strong>
+            <div class="dash-bar-track">
+              <div class="dash-bar-fill" style="width: 40%;"></div>
+            </div>
+          </div>
+
+          <div class="dash-bar-row">
+            <span>Distribution networks</span>
+            <strong>35%</strong>
+            <div class="dash-bar-track">
+              <div class="dash-bar-fill" style="width: 35%;"></div>
+            </div>
+          </div>
+
+          <div class="dash-bar-row">
+            <span>Household connections</span>
+            <strong>25%</strong>
+            <div class="dash-bar-track">
+              <div class="dash-bar-fill" style="width: 25%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Components -->
+      <div class="dashboard-panel">
+        <div class="panel-title">
+          <div>
+            <h2>Project Components</h2>
+            <p>المكونات الأساسية للنظام.</p>
+          </div>
+
+          <i class="ri-cpu-line"></i>
+        </div>
+
+        <div class="component-list">
+          <article>
+            <i class="ri-cpu-line"></i>
+            <span>Arduino Uno R3</span>
+          </article>
+
+          <article>
+            <i class="ri-sd-card-line"></i>
+            <span>Micro SD Module</span>
+          </article>
+
+          <article>
+            <i class="ri-map-pin-line"></i>
+            <span>NEO-6M GPS Module</span>
+          </article>
+
+          <article>
+            <i class="ri-compass-3-line"></i>
+            <span>MPU-6050 IMU</span>
+          </article>
+
+          <article>
+            <i class="ri-sound-module-line"></i>
+            <span>JSN-SR04T Ultrasonic</span>
+          </article>
+
+          <article>
+            <i class="ri-dashboard-line"></i>
+            <span>MPXV7002DP Pressure Sensor</span>
+          </article>
+        </div>
+      </div>
+
+      <!-- Contact Messages -->
+      <div class="dashboard-panel large-panel">
+        <div class="panel-title">
+          <div>
+            <h2>Contact Messages</h2>
+            <p>رسائل التواصل المحفوظة محليًا في النسخة التجريبية.</p>
+          </div>
+
+          <i class="ri-mail-send-line"></i>
+        </div>
+
+        <div class="messages-box" id="messagesBox">
+          <div class="empty-messages">
+            <i class="ri-inbox-line"></i>
+            <h3>No messages yet</h3>
+            <p>Contact form messages will appear here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Notes -->
+      <div class="dashboard-panel">
+        <div class="panel-title">
+          <div>
+            <h2>Admin Notes</h2>
+            <p>ملاحظات سريعة لصاحب المشروع.</p>
+          </div>
+
+          <i class="ri-sticky-note-line"></i>
+        </div>
+
+        <textarea
+          id="adminNotes"
+          class="admin-notes"
+          placeholder="اكتب ملاحظاتك هنا..."
+        ></textarea>
+
+        <button class="save-notes-btn" type="button" id="saveNotesBtn">
+          <i class="ri-save-3-line"></i>
+          حفظ الملاحظات
+        </button>
+
+        <p class="notes-message" id="notesMessage"></p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>LeakBot Dashboard © 2026</p>
+    <p>Demo Protected Page</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

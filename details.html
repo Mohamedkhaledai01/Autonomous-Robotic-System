@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ملف المشروع | LeakBot</title>
+
+  <meta
+    name="description"
+    content="ملف مشروع LeakBot الكامل: Abstract, Engineering Goals, Methodology, Analysis, Expected Results and References."
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <!-- ================= Details Header ================= -->
+  <header class="inner-hero" id="top">
+    <nav class="navbar inner-navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-shape">
+          <i class="ri-drop-line"></i>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#problem">المشكلة</a></li>
+        <li><a href="index.html#solution">فكرة الحل</a></li>
+        <li><a href="index.html#features">المميزات</a></li>
+        <li><a href="index.html#workflow">آلية العمل</a></li>
+        <li><a class="active" href="details.html">ملف المشروع</a></li>
+        <li><a href="index.html#contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+
+    <div class="inner-hero-content">
+      <div>
+        <span class="page-badge">
+          <i class="ri-file-list-3-line"></i>
+          Project File
+        </span>
+
+        <h1>
+          Autonomous Robotic System for Precise
+          <span>Underground Water Leak Detection</span>
+        </h1>
+
+        <p>
+          الملف الكامل للمشروع: الفكرة، المشكلة، الأهداف الهندسية، المنهجية،
+          المكونات، تحليل البيانات، النتائج المتوقعة، والخطط المستقبلية.
+        </p>
+      </div>
+
+      <div class="inner-hero-visual">
+        <div class="details-orbit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <i class="ri-robot-2-line"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="details-main">
+
+    <!-- ================= Quick Navigation ================= -->
+    <section class="details-nav-box">
+      <a href="#abstract"><i class="ri-book-open-line"></i> Abstract</a>
+      <a href="#introduction"><i class="ri-information-line"></i> Introduction</a>
+      <a href="#goals"><i class="ri-focus-3-line"></i> Engineering Goals</a>
+      <a href="#methodology"><i class="ri-settings-3-line"></i> Methodology</a>
+      <a href="#background"><i class="ri-search-eye-line"></i> Background Research</a>
+      <a href="#analysis"><i class="ri-bar-chart-2-line"></i> Analysis</a>
+      <a href="#results"><i class="ri-check-double-line"></i> Expected Results</a>
+      <a href="#future"><i class="ri-rocket-line"></i> Future Plans</a>
+      <a href="#references"><i class="ri-links-line"></i> References</a>
+    </section>
+
+    <!-- ================= Abstract ================= -->
+    <section class="page-section" id="abstract">
+      <div class="page-section-title">
+        <i class="ri-book-open-line"></i>
+        <h2>Abstract</h2>
+      </div>
+
+      <div class="content-card">
+        <p>
+          This project introduces a smart, low-cost robotic system designed to
+          detect and accurately localize water leaks in underground main
+          pipelines and distribution networks using a combination of pressure
+          sensing, ultrasonic measurement, IMU-based tracking, GPS, and onboard
+          data logging.
+        </p>
+
+        <p>
+          Before deployment, the robot records its starting GPS coordinates at
+          the entry point of the pipeline. Once inside, GPS is no longer
+          available, so the robot relies on its IMU to calculate traveled
+          distance, orientation, and relative position.
+        </p>
+
+        <p>
+          A differential pressure sensor continuously monitors pressure patterns.
+          Any abnormal pressure drop is analyzed to determine the presence of a
+          leak. At the exact moment a leak is detected, the robot correlates the
+          pressure anomaly with its internally calculated position to determine
+          the leak’s location relative to the entry point.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Introduction ================= -->
+    <section class="page-section" id="introduction">
+      <div class="page-section-title">
+        <i class="ri-information-line"></i>
+        <h2>Introduction</h2>
+      </div>
+
+      <div class="two-column">
+        <div class="content-card">
+          <h3>Water Distribution Networks</h3>
+
+          <p>
+            Water distribution networks are among the most critical components
+            of urban infrastructure. They ensure the continuous supply of clean
+            water to homes, industries, and public facilities.
+          </p>
+
+          <p>
+            However, underground main pipelines and distribution lines are highly
+            vulnerable to leaks caused by corrosion, pressure fluctuations, aging
+            pipes, and mechanical damage.
+          </p>
+        </div>
+
+        <div class="content-card warning-card">
+          <h3>The Real Problem</h3>
+
+          <ul class="clean-list">
+            <li>Water loss and waste of treated water.</li>
+            <li>Soil erosion and infrastructure damage.</li>
+            <li>Pipe bursts and increased maintenance costs.</li>
+            <li>Higher energy consumption.</li>
+            <li>Large financial losses for utility companies.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Engineering Goals ================= -->
+    <section class="page-section" id="goals">
+      <div class="page-section-title">
+        <i class="ri-focus-3-line"></i>
+        <h2>Engineering Goals</h2>
+      </div>
+
+      <div class="goal-grid">
+        <article class="goal-card">
+          <span>01</span>
+          <i class="ri-money-dollar-circle-line"></i>
+          <h3>Cost Under $100</h3>
+          <p>
+            Achieve a total manufacturing cost under $100, making the system
+            significantly more affordable than existing commercial
+            leak-detection solutions.
+          </p>
+        </article>
+
+        <article class="goal-card">
+          <span>02</span>
+          <i class="ri-map-pin-line"></i>
+          <h3>Accurate Leak Localization</h3>
+          <p>
+            Identify the leak point by correlating pressure anomalies with
+            real-time internal position tracking inside complex pipeline
+            networks.
+          </p>
+        </article>
+
+        <article class="goal-card">
+          <span>03</span>
+          <i class="ri-shield-check-line"></i>
+          <h3>Reliable High-Pressure Operation</h3>
+          <p>
+            Enable the robot to function safely inside main pipelines and urban
+            distribution networks under high water pressure.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Methodology ================= -->
+    <section class="page-section" id="methodology">
+      <div class="page-section-title">
+        <i class="ri-settings-3-line"></i>
+        <h2>Methodology</h2>
+      </div>
+
+      <div class="method-grid">
+        <article class="method-card">
+          <i class="ri-shape-line"></i>
+          <h3>Structure</h3>
+          <p>
+            The robot’s main body is a cylinder with pointed ends designed to
+            reduce friction and move smoothly inside pipelines. Flexible joints
+            allow bending and adaptation to pipe curves.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <i class="ri-cpu-line"></i>
+          <h3>Electronic System</h3>
+          <ul class="clean-list">
+            <li>Arduino Uno R3 as the main processing unit.</li>
+            <li>Micro-SD module for data logging with timestamps.</li>
+            <li>Rechargeable 9–12V battery with a 5V regulator.</li>
+          </ul>
+        </article>
+
+        <article class="method-card">
+          <i class="ri-route-line"></i>
+          <h3>Mechanical & Navigation System</h3>
+          <p>
+            Motors rotate clockwise and counterclockwise to move forward,
+            backward, left, and right. Servo motors control the joints to
+            provide flexibility and adaptability.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <i class="ri-radar-line"></i>
+          <h3>Sensing System</h3>
+          <ul class="clean-list">
+            <li>GPS records coordinates before entering the pipeline.</li>
+            <li>IMU calculates distance traveled and monitors movement.</li>
+            <li>Differential pressure sensor detects pressure changes.</li>
+            <li>SD module stores data for later analysis.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Software ================= -->
+    <section class="page-section">
+      <div class="page-section-title">
+        <i class="ri-code-s-slash-line"></i>
+        <h2>Software Logic</h2>
+      </div>
+
+      <div class="code-explain-card">
+        <div>
+          <h3>How the Arduino Software Works</h3>
+
+          <p>
+            The Arduino software continuously reads all sensors, detects pressure
+            drops, and computes leak location using IMU displacement added to the
+            GPS starting coordinates.
+          </p>
+
+          <p>
+            Key events such as “leak detected,” pressure values, distance,
+            heading, and calculated coordinates are stored on the SD card.
+          </p>
+        </div>
+
+        <pre><code>Read GPS start point
+Loop:
+  Read pressure sensor
+  Read IMU displacement
+  Calculate current position
+  If pressure drop detected:
+      Mark leak detected
+      Save pressure, distance, heading
+      Save calculated coordinates
+Store data on SD card</code></pre>
+      </div>
+    </section>
+
+    <!-- ================= Background Research ================= -->
+    <section class="page-section" id="background">
+      <div class="page-section-title">
+        <i class="ri-search-eye-line"></i>
+        <h2>Background Research</h2>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="comparison-card">
+          <h3>MIT PipeGuard Robot</h3>
+
+          <p>
+            PipeGuard is a soft in-pipe robot that moves with water flow. It has
+            a flexible rubber skirt that touches pipe walls. When there is a
+            leak, escaping water creates a small pressure drop, which the robot
+            senses while passing next to the leak.
+          </p>
+
+          <div class="disadvantage">
+            <strong>Disadvantages</strong>
+            <ul>
+              <li>Relies on water flow to move.</li>
+              <li>Works mainly in smooth, constant-diameter pipes.</li>
+              <li>Prototype cost is more than $200.</li>
+              <li>Not commercially available for real field use.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="comparison-card">
+          <h3>Xylem SmartBall</h3>
+
+          <p>
+            SmartBall is a free-swimming device inserted into water pipelines.
+            It drifts with the water flow while acoustic, pressure, and flow
+            sensors record anomalies that may indicate leaks.
+          </p>
+
+          <div class="disadvantage">
+            <strong>Disadvantages</strong>
+            <ul>
+              <li>No control over its movement.</li>
+              <li>Depends entirely on water flow.</li>
+              <li>Needs a human operator to catch it at another point.</li>
+              <li>Time-consuming for long or complex pipelines.</li>
+              <li>Branching networks cannot be examined effectively.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="my-solution-box">
+        <h3>My Solution</h3>
+        <p>
+          Our project presents a low-cost leak detection robot under $100 that
+          combines active navigation, accurate leak localization, and
+          compatibility with most water pipe types.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= Analysis ================= -->
+    <section class="page-section" id="analysis">
+      <div class="page-section-title">
+        <i class="ri-bar-chart-2-line"></i>
+        <h2>Analysis</h2>
+      </div>
+
+      <div class="analysis-grid">
+        <article class="analysis-card">
+          <i class="ri-percent-line"></i>
+          <strong>30%</strong>
+          <p>Water Loss Percentage</p>
+        </article>
+
+        <article class="analysis-card">
+          <i class="ri-water-flash-line"></i>
+          <strong>6 Billion</strong>
+          <p>Annual Water Loss Quantity in cubic meters</p>
+        </article>
+
+        <article class="analysis-card">
+          <i class="ri-money-dollar-circle-line"></i>
+          <strong>12 Billion</strong>
+          <p>Annual Financial Loss in Egyptian Pounds</p>
+        </article>
+      </div>
+
+      <div class="bars-card">
+        <h3>Leak Distribution</h3>
+
+        <div class="bar-row">
+          <span>40% in main transmission lines</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 40%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <span>35% in distribution networks</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 35%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <span>25% in household connections</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 25%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Discussion ================= -->
+    <section class="page-section">
+      <div class="page-section-title">
+        <i class="ri-discuss-line"></i>
+        <h2>Discussion</h2>
+      </div>
+
+      <div class="two-column">
+        <div class="content-card">
+          <h3>IMU – MPU6050</h3>
+          <p>
+            Chosen for its compact size, low cost, and reliable
+            motion/orientation tracking for accurate navigation.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h3>MPXV7002DP Pressure Sensor</h3>
+          <p>
+            Selected for its high sensitivity to small pressure changes,
+            enabling precise leak detection and easy integration with Arduino.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Expected Results ================= -->
+    <section class="page-section" id="results">
+      <div class="page-section-title">
+        <i class="ri-check-double-line"></i>
+        <h2>Expected Results</h2>
+      </div>
+
+      <div class="results-list">
+        <article>
+          <i class="ri-speed-up-line"></i>
+          <p>
+            Accurately detect small pressure drops using the MPXV7002DP, allowing
+            identification of leaks as small as a few millibars.
+          </p>
+        </article>
+
+        <article>
+          <i class="ri-compass-3-line"></i>
+          <p>
+            Track movement and estimate distance inside pipes using the MPU6050
+            IMU, enabling precise leak localization with an expected error margin
+            less than 5–10%.
+          </p>
+        </article>
+
+        <article>
+          <i class="ri-route-line"></i>
+          <p>
+            Navigate through different pipe diameters and bends using the active
+            mobility system while maintaining stability.
+          </p>
+        </article>
+
+        <article>
+          <i class="ri-money-dollar-circle-line"></i>
+          <p>
+            Achieve low-cost performance under $100 while matching or exceeding
+            the accuracy of higher-cost commercial robots.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Future Plans ================= -->
+    <section class="page-section" id="future">
+      <div class="page-section-title">
+        <i class="ri-rocket-line"></i>
+        <h2>Future Plans</h2>
+      </div>
+
+      <div class="future-grid">
+        <article class="future-card">
+          <i class="ri-tools-line"></i>
+          <h3>Automated Repair Module</h3>
+          <p>
+            Upgrade the robot into a full leak-management system by adding an
+            automated repair module capable of injecting fast-curing sealing
+            materials at the leak point.
+          </p>
+        </article>
+
+        <article class="future-card">
+          <i class="ri-map-pin-off-line"></i>
+          <h3>Eliminating GPS Module</h3>
+          <p>
+            Try to eliminate the NEO-6M GPS module to reduce overall cost and
+            rely entirely on accelerometer readings from the IMU for distance
+            estimation.
+          </p>
+        </article>
+
+        <article class="future-card">
+          <i class="ri-equalizer-line"></i>
+          <h3>Advanced Signal Filtering</h3>
+          <p>
+            Improve software processing and signal filtering to maintain
+            accurate tracking without GPS support.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= References ================= -->
+    <section class="page-section references-section" id="references">
+      <div class="page-section-title">
+        <i class="ri-links-line"></i>
+        <h2>References</h2>
+      </div>
+
+      <ol class="references-list">
+        <li>
+          Negm, A., Ma, X., & Aggidis, G. (2023). Review of leakage detection in
+          water distribution networks. IOP Conference Series: Earth and
+          Environmental Science.
+        </li>
+
+        <li>
+          Yehia, Zakaria. (2024). Reducing non-revenue water in Egypt using GIS.
+          DOI: 10.32388/X8Q5CK.2.
+        </li>
+
+        <li>
+          In-Pipe Inspection Robots: Review of Technologies and Design
+          Challenges, IEEE, 2021.
+        </li>
+
+        <li>
+          Shafeek Mubarak. (2022). Pressure Sensor-Based Leak Detection in Water
+          Distribution Networks.
+        </li>
+
+        <li>
+          Colombo, A. F., Lee, P., & Karney, B. W. (2021). A selective literature
+          review of transient-based leak detection methods.
+        </li>
+
+        <li>
+          El-Zahab, S., & Zayed, T. (2019). Leak detection in water distribution
+          networks: An introductory overview. Smart Water.
+        </li>
+
+        <li>
+          CAPMAS publications: Water loss and national statistics.
+        </li>
+
+        <li>
+          Business Insider: MIT graduate robot for water pipe leak detection.
+        </li>
+
+        <li>
+          Xylem SmartBall inline free-swimming inspection platform.
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Done By : Mohamed Khaled</p>
+    <p>LeakBot Project File © 2026</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

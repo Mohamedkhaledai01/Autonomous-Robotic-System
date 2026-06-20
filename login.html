@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>تسجيل الدخول | LeakBot</title>
+
+  <meta
+    name="description"
+    content="تسجيل الدخول إلى لوحة تحكم مشروع LeakBot."
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <!-- Auth Header -->
+  <header class="auth-header">
+    <nav class="navbar inner-navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-shape">
+          <i class="ri-drop-line"></i>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="details.html">ملف المشروع</a></li>
+        <li><a class="active" href="login.html">تسجيل الدخول</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Auth Page -->
+  <main class="auth-main">
+
+    <section class="auth-wrapper">
+
+      <!-- Visual Side -->
+      <div class="auth-visual">
+        <div class="auth-orbit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <i class="ri-shield-user-line"></i>
+        </div>
+
+        <h1>لوحة تحكم LeakBot</h1>
+
+        <p>
+          سجّل دخولك للوصول إلى لوحة التحكم، متابعة بيانات المشروع،
+          واستعراض الرسائل وبيانات النظام.
+        </p>
+
+        <div class="auth-features">
+          <article>
+            <i class="ri-dashboard-3-line"></i>
+            <span>Dashboard Access</span>
+          </article>
+
+          <article>
+            <i class="ri-lock-password-line"></i>
+            <span>Protected Page</span>
+          </article>
+
+          <article>
+            <i class="ri-mail-send-line"></i>
+            <span>Contact Messages</span>
+          </article>
+        </div>
+      </div>
+
+      <!-- Form Side -->
+      <div class="auth-card">
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="loginTab" type="button">
+            تسجيل الدخول
+          </button>
+
+          <button class="auth-tab" id="signupTab" type="button">
+            إنشاء حساب
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form active" id="loginForm">
+          <h2>مرحبًا بعودتك</h2>
+          <p>ادخل بياناتك للوصول إلى لوحة التحكم.</p>
+
+          <div class="input-group">
+            <label for="loginEmail">البريد الإلكتروني</label>
+            <div class="input-box">
+              <i class="ri-mail-line"></i>
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="admin@leakbot.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="loginPassword">كلمة المرور</label>
+            <div class="input-box">
+              <i class="ri-lock-line"></i>
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="auth-submit">
+            دخول
+            <i class="ri-login-circle-line"></i>
+          </button>
+
+          <div class="demo-box">
+            <strong>Demo Login</strong>
+            <span>Email: admin@leakbot.com</span>
+            <span>Password: admin123</span>
+          </div>
+
+          <p class="auth-message" id="loginMessage"></p>
+        </form>
+
+        <!-- Signup Form -->
+        <form class="auth-form" id="signupForm">
+          <h2>إنشاء حساب جديد</h2>
+          <p>أنشئ حسابًا تجريبيًا للوصول إلى لوحة التحكم.</p>
+
+          <div class="input-group">
+            <label for="signupName">الاسم</label>
+            <div class="input-box">
+              <i class="ri-user-line"></i>
+              <input
+                type="text"
+                id="signupName"
+                placeholder="Mohamed Khaled"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="signupEmail">البريد الإلكتروني</label>
+            <div class="input-box">
+              <i class="ri-mail-line"></i>
+              <input
+                type="email"
+                id="signupEmail"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="signupPassword">كلمة المرور</label>
+            <div class="input-box">
+              <i class="ri-lock-line"></i>
+              <input
+                type="password"
+                id="signupPassword"
+                placeholder="Minimum 6 characters"
+                minlength="6"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="auth-submit">
+            إنشاء الحساب
+            <i class="ri-user-add-line"></i>
+          </button>
+
+          <p class="auth-message" id="signupMessage"></p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>LeakBot © 2026</p>
+    <p>Secure Demo Access</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+      <!doctype html>
+      <html lang="ar" dir="rtl">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>LeakBot | روبوت ذكي لاكتشاف تسريبات المياه</title>
+
+        <meta
+          name="description"
+          content="روبوت ذكي منخفض التكلفة لاكتشاف وتحديد أماكن تسريبات المياه تحت الأرض باستخدام الضغط، IMU، GPS، وArduino."
+        />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
+      </head>
+
+      <body>
+
+        <!-- Header / Hero -->
+        <header class="hero-section" id="home">
+          <nav class="navbar">
+            <a href="#home" class="logo">
+              <span class="logo-shape">
+                <i class="ri-drop-line"></i>
+              </span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+              <i class="ri-menu-line"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+              <li><a class="active" href="#home">الرئيسية</a></li>
+              <li><a href="#problem">المشكلة</a></li>
+              <li><a href="#solution">فكرة الحل</a></li>
+              <li><a href="#features">المميزات</a></li>
+              <li><a href="#workflow">آلية العمل</a></li>
+              <li><a href="#about">عن المشروع</a></li>
+              <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+          </nav>
+
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>
+                روبوت ذكي لاكتشاف
+                <span>تسريبات المياه</span>
+                تحت الأرض
+              </h1>
+
+              <p>
+                حل هندسي منخفض التكلفة يعتمد على الاستشعار، تتبع الحركة الداخلي،
+                وتحليل تغيرات الضغط لاكتشاف التسريبات وتحديد موقعها بدقة.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#problem" class="btn primary-btn">اعرف المزيد</a>
+                <a href="#contact" class="btn outline-btn">تواصل معنا</a>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="city-bg"></div>
+
+              <div class="robot-css">
+                <div class="robot-head">
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="robot-neck"></div>
+                <div class="robot-body">
+                  <div class="robot-light"></div>
+                </div>
+                <div class="robot-wheels">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="water-beam"></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main>
+
+          <!-- Problem -->
+          <section class="section problem-section" id="problem">
+            <div class="section-grid problem-grid">
+              <div class="section-text center-text">
+                <div class="section-title">
+                  <h2>المشكلة</h2>
+                  <i class="ri-error-warning-line"></i>
+                </div>
+
+                <p>
+                  تسريبات المياه تحت الأرض لا يمكن رؤيتها بالعين المجردة، وتسبب
+                  هدرًا كبيرًا في المياه، تلفًا في البنية التحتية، زيادة في استهلاك
+                  الطاقة، وخسائر مالية كبيرة لشركات المرافق.
+                </p>
+              </div>
+
+              <div class="pipe-leak-visual">
+                <div class="soil"></div>
+                <div class="pipe"></div>
+                <div class="water-stream"></div>
+              </div>
+            </div>
+
+            <div class="problem-cards">
+              <article class="mini-card">
+                <i class="ri-drop-line"></i>
+                <h3>هدر المياه</h3>
+                <p>فقدان كميات كبيرة من المياه المعالجة.</p>
+              </article>
+
+              <article class="mini-card">
+                <i class="ri-coins-line"></i>
+                <h3>تكاليف مرتفعة</h3>
+                <p>صيانة وحفر واختبارات متكررة.</p>
+              </article>
+
+              <article class="mini-card">
+                <i class="ri-road-map-line"></i>
+                <h3>حفر عشوائي</h3>
+                <p>إهدار الوقت والمال في البحث عن التسريب.</p>
+              </article>
+
+              <article class="mini-card">
+                <i class="ri-seedling-line"></i>
+                <h3>أضرار بيئية</h3>
+                <p>تآكل التربة وتأثير سلبي على البنية التحتية.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Solution -->
+          <section class="section solution-section" id="solution">
+            <div class="solution-layout">
+              <div class="pipe-robot-visual">
+                <div class="glass-pipe"></div>
+                <div class="signal signal-1"></div>
+                <div class="signal signal-2"></div>
+                <div class="signal signal-3"></div>
+
+                <div class="mini-robot">
+                  <div class="mini-head"></div>
+                  <div class="mini-body"></div>
+                  <div class="mini-wheels">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-text">
+                <div class="section-title">
+                  <h2>فكرة الحل</h2>
+                  <i class="ri-shield-drop-line"></i>
+                </div>
+
+                <p>
+                  روبوت يتحرك داخل خط المياه، يسجل نقطة البداية باستخدام GPS،
+                  ثم يعتمد داخل الأنبوب على IMU لحساب المسافة والاتجاه، مع مراقبة
+                  الضغط لتحديد لحظة ومكان التسريب.
+                </p>
+
+                <div class="solution-points">
+                  <article>
+                    <i class="ri-map-pin-line"></i>
+                    <h3>GPS Start Point</h3>
+                    <p>تسجيل إحداثيات الدخول قبل دخول الأنبوب.</p>
+                  </article>
+
+                  <article>
+                    <i class="ri-compass-3-line"></i>
+                    <h3>IMU Tracking</h3>
+                    <p>حساب المسافة والاتجاه داخل الشبكة.</p>
+                  </article>
+
+                  <article>
+                    <i class="ri-speed-up-line"></i>
+                    <h3>Pressure Sensor</h3>
+                    <p>التقاط انخفاض الضغط عند التسريب.</p>
+                  </article>
+
+                  <article>
+                    <i class="ri-sd-card-line"></i>
+                    <h3>SD Logging</h3>
+                    <p>تخزين القراءات للتحليل لاحقًا.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Features -->
+          <section class="section features-section" id="features">
+            <div class="section-title centered">
+              <h2>المميزات الرئيسية</h2>
+              <i class="ri-star-line"></i>
+            </div>
+
+            <div class="features-grid">
+              <article class="feature-card">
+                <i class="ri-focus-3-line"></i>
+                <h3>دقة عالية</h3>
+                <p>ربط تغير الضغط بموقع الروبوت الداخلي.</p>
+              </article>
+
+              <article class="feature-card">
+                <i class="ri-money-dollar-circle-line"></i>
+                <h3>تكلفة منخفضة</h3>
+                <p>هدف التصنيع أقل من 100 دولار.</p>
+              </article>
+
+              <article class="feature-card">
+                <i class="ri-time-line"></i>
+                <h3>توفير الوقت</h3>
+                <p>تقليل الحفر والتجارب العشوائية.</p>
+              </article>
+
+              <article class="feature-card">
+                <i class="ri-shield-check-line"></i>
+                <h3>تشغيل موثوق</h3>
+                <p>مصمم للعمل داخل خطوط المياه.</p>
+              </article>
+
+              <article class="feature-card">
+                <i class="ri-leaf-line"></i>
+                <h3>حماية البيئة</h3>
+                <p>تقليل فاقد المياه وحماية البنية التحتية.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Workflow -->
+          <section class="section workflow-section" id="workflow">
+            <div class="section-title centered">
+              <h2>آلية العمل</h2>
+              <i class="ri-settings-3-line"></i>
+            </div>
+
+            <div class="workflow-line">
+              <article class="step-card">
+                <span>01</span>
+                <i class="ri-map-pin-2-line"></i>
+                <h3>تسجيل البداية</h3>
+                <p>تسجيل إحداثيات GPS قبل دخول الأنبوب.</p>
+              </article>
+
+              <article class="step-card">
+                <span>02</span>
+                <i class="ri-route-line"></i>
+                <h3>الحركة الداخلية</h3>
+                <p>تحرك الروبوت داخل خطوط المياه.</p>
+              </article>
+
+              <article class="step-card">
+                <span>03</span>
+                <i class="ri-compass-line"></i>
+                <h3>تتبع IMU</h3>
+                <p>قياس المسافة والاتجاه أثناء الحركة.</p>
+              </article>
+
+              <article class="step-card">
+                <span>04</span>
+                <i class="ri-speed-line"></i>
+                <h3>قياس الضغط</h3>
+                <p>رصد أي انخفاض غير طبيعي في الضغط.</p>
+              </article>
+
+              <article class="step-card">
+                <span>05</span>
+                <i class="ri-map-pin-line"></i>
+                <h3>تحديد الموقع</h3>
+                <p>ربط الانخفاض بمكان الروبوت داخل الشبكة.</p>
+              </article>
+
+              <article class="step-card">
+                <span>06</span>
+                <i class="ri-save-3-line"></i>
+                <h3>تسجيل البيانات</h3>
+                <p>حفظ الضغط والمسافة والاتجاه على SD Card.</p>
+              </article>
+
+              <article class="step-card">
+                <span>07</span>
+                <i class="ri-bar-chart-2-line"></i>
+                <h3>تحليل النتائج</h3>
+                <p>تحليل البيانات وتحديد نقطة الصيانة.</p>
+              </article>
+            </div>
+
+            <div class="tech-tags">
+              <span><i class="ri-cpu-line"></i> Arduino Uno R3</span>
+              <span><i class="ri-sd-card-line"></i> Micro SD Module</span>
+              <span><i class="ri-map-pin-line"></i> NEO-6M GPS</span>
+              <span><i class="ri-compass-3-line"></i> MPU-6050 IMU</span>
+              <span><i class="ri-sound-module-line"></i> JSN-SR04T</span>
+              <span><i class="ri-dashboard-line"></i> MPXV7002DP</span>
+            </div>
+          </section>
+
+          <!-- Impact -->
+          <section class="impact-section">
+            <div class="section-title centered light-title">
+              <h2>أثر المشروع</h2>
+              <i class="ri-bar-chart-line"></i>
+            </div>
+
+            <div class="impact-grid">
+              <article class="impact-card">
+                <i class="ri-drop-line"></i>
+                <strong>30%</strong>
+                <p>نسبة فاقد المياه</p>
+              </article>
+
+              <article class="impact-card">
+                <i class="ri-water-flash-line"></i>
+                <strong>6B</strong>
+                <p>متر مكعب فاقد سنويًا</p>
+              </article>
+
+              <article class="impact-card">
+                <i class="ri-money-dollar-circle-line"></i>
+                <strong>12B</strong>
+                <p>جنيه خسائر سنوية</p>
+              </article>
+
+              <article class="impact-card">
+                <i class="ri-tools-line"></i>
+                <strong>&lt;$100</strong>
+                <p>هدف تكلفة التصنيع</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- About -->
+          <section class="section about-section" id="about">
+            <div class="about-text">
+              <h2>عن المشروع</h2>
+
+              <p>
+                مشروع تخرج بعنوان
+                <strong>Autonomous Robotic System for Precise Underground Water Leak Detection</strong>
+                يهدف إلى تطوير روبوت منخفض التكلفة لاكتشاف وتسريع تحديد مواقع
+                تسريبات المياه في الخطوط الرئيسية وشبكات التوزيع.
+              </p>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card-icon">
+                <i class="ri-robot-2-line"></i>
+              </div>
+
+              <h3>Done By</h3>
+              <p>Mohamed Khaled</p>
+            </div>
+          </section>
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+      <div class="contact-content">
+        <div class="contact-text">
+          <span class="contact-badge">
+            <i class="ri-message-3-line"></i>
+            Contact Us
+          </span>
+
+          <h2>هل تبحث عن حل ذكي لتسريبات المياه؟</h2>
+
+          <p>
+            تواصل معنا لمعرفة المزيد عن النظام الذكي لاكتشاف تسريبات المياه
+            تحت الأرض، أو لمناقشة تفاصيل المشروع والتطبيق العملي.
+          </p>
+
+          <div class="contact-info-list">
+            <article>
+              <i class="ri-user-line"></i>
+              <div>
+                <strong>Project Owner</strong>
+                <span>Mohamed Khaled</span>
+              </div>
+            </article>
+
+            <article>
+              <i class="ri-robot-2-line"></i>
+              <div>
+                <strong>Project Type</strong>
+                <span>Autonomous Robotic Leak Detection System</span>
+              </div>
+            </article>
+
+            <article>
+              <i class="ri-tools-line"></i>
+              <div>
+                <strong>Target Cost</strong>
+                <span>Under $100 Manufacturing Cost</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3>أرسل رسالة</h3>
+          <p>سيتم حفظ الرسالة داخل لوحة التحكم التجريبية.</p>
+
+          <form id="contactForm" class="contact-form">
+            <div class="input-group">
+              <label for="contactName">الاسم</label>
+              <div class="input-box">
+                <i class="ri-user-line"></i>
+                <input
+                  type="text"
+                  id="contactName"
+                  placeholder="اكتب اسمك"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="contactEmail">البريد الإلكتروني</label>
+              <div class="input-box">
+                <i class="ri-mail-line"></i>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="contactMessage">الرسالة</label>
+              <div class="textarea-box">
+                <i class="ri-chat-3-line"></i>
+                <textarea
+                  id="contactMessage"
+                  placeholder="اكتب رسالتك هنا..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="contact-submit">
+              إرسال الرسالة
+              <i class="ri-send-plane-fill"></i>
+            </button>
+
+            <p class="contact-message" id="contactFormMessage"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+        </main>
+
+        <footer class="footer">
+          <p>LeakBot © 2026</p>
+          <p>Autonomous Robotic System for Precise Underground Water Leak Detection</p>
+        </footer>
+        <script src="js/main.js"></script>
+        <script src="js/contact.js"></script>
+        </body>
+      </html>

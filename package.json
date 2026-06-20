@@ -1,0 +1,21 @@
+    {
+    "name": "leakbot-website",
+    "version": "1.0.0",
+    "description": "Static website for LeakBot: Autonomous Robotic System for Precise Underground Water Leak Detection.",
+    "private": true,
+    "scripts": {
+        "dev": "npx serve .",
+        "deploy": "vercel --prod"
+    },
+    "keywords": [
+        "leak-detection",
+        "robotics",
+        "water-pipelines",
+        "arduino",
+        "imu",
+        "gps",
+        "static-website"
+    ],
+    "author": "Mohamed Khaled",
+    "license": "MIT"
+    }
